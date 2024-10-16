@@ -1,0 +1,16 @@
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.List;
+
+public class DataManager {
+    public void saveHoiVienToFile(List<HoiVien> hoiVienList, String fileName) {
+        try (FileOutputStream fileOut = new FileOutputStream(fileName);
+             ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
+            out.writeObject(hoiVienList);
+            System.out.println("Dữ liệu hội viên đã được lưu thành công!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
